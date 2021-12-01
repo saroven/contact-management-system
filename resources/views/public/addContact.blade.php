@@ -99,5 +99,11 @@
               </div>
             </form>
           </div>
-          <!-- /.card -->s
+          <!-- /.card -->
+
+@endsection
+@section('extra-script')
+    <script>
+        navActivator('addContact')
+    </script>
 @endsection

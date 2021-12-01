@@ -75,6 +75,7 @@
     <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/js/admin-lte/adminlte.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/navActivator.js') }}"></script>
 
     @yield('extra-script')
 

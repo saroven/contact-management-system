@@ -39,8 +39,8 @@
             >
               <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-              <li class="nav-item has-treeview menu-open">
-                <a href="{{ route('addContact') }}" class="nav-link active">
+              <li class="nav-item has-treeview">
+                <a href="{{ route('addContact') }}" id="addContact" class="nav-link">
                   <i class="fas fa-user-plus"> </i>
                   <p>New Contact</p>
                 </a>
