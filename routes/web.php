@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('public.home');
 });
+Route::get('/add-contact', function () {
+    return view('public.addContact');
+})->name('addContact');
