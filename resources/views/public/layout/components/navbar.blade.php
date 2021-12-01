@@ -7,7 +7,7 @@
             ></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="home.blade.php" class="nav-link">Home</a>
+            <a href="{{ route('home') }}" class="nav-link">Home</a>
           </li>
         </ul>
 
@@ -29,11 +29,11 @@
               <a href="#" class="dropdown-item">
                 <span class="text-md">Import / Export</span>
               </a>
-              <a href="manage-user.html" class="dropdown-item">
+              <a href="{{ route('manageUser') }}" class="dropdown-item">
                 <span class="text-md">Manage Users</span>
               </a>
-              <a href="site-configaration.html" class="dropdown-item">
-                <span class="text-md">Site Configaration</span>
+              <a href="{{ route('siteConfiguration') }}" class="dropdown-item">
+                <span class="text-md">Site Configuration</span>
               </a>
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item">
