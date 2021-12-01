@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>AdminLTE 3 | Registration Page</title>
+    <title>Contact App | Registration Page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,9 +21,9 @@
       href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
     />
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="css/icheck/icheck-bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/icheck/icheck-bootstrap.min.css') }}" />
     <!-- Theme style -->
-    <link rel="stylesheet" href="css/admin-lte/adminlte.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/admin-lte/adminlte.min.css') }}" />
     <!-- Google Font: Source Sans Pro -->
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
@@ -33,7 +33,7 @@
   <body class="hold-transition register-page">
     <div class="register-box">
       <div class="register-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="{{ route('home') }}"><b>Contact App</b></a>
       </div>
 
       <div class="card">
@@ -117,9 +117,9 @@
             </a>
           </div>
 
-          <a href="login.html" class="text-center"
-            >I already have a membership</a
-          >
+          <a href="{{ route('login') }}" class="text-center">
+              I already have an account
+          </a>
         </div>
         <!-- /.form-box -->
       </div>
@@ -128,10 +128,10 @@
     <!-- /.register-box -->
 
     <!-- jQuery -->
-    <script src="js/jquery/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="js/admin-lte/adminlte.min.js"></script>
+    <script src="{{ asset('assets/js/admin-lte/adminlte.min.js') }}"></script>
   </body>
 </html>
