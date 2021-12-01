@@ -40,7 +40,7 @@
             ></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="home.blade.php" class="nav-link">Home</a>
           </li>
         </ul>
 
@@ -49,28 +49,19 @@
           <!-- Messages Dropdown Menu -->
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="fa fa-user"></i> Username
+              <i class="fa fa-user"></i> User
               <i class="fas fa-sort-down"></i>
             </a>
-            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <div
+              class="dropdown-menu dropdown-menu-sm dropdown-menu-right"
+              style="text-align: center"
+            >
               <a href="#" class="dropdown-item">
-                <span class="text-md">Profile</span>
-              </a>
-              <a href="#" class="dropdown-item">
-                <span class="text-md">Change Password</span>
-              </a>
-              <a href="#" class="dropdown-item">
-                <span class="text-md">Import / Export</span>
-              </a>
-              <a href="manage-user.html" class="dropdown-item">
-                <span class="text-md">Manage Users</span>
-              </a>
-              <a href="site-configaration.html" class="dropdown-item">
-                <span class="text-md">Site Configaration</span>
+                <span class="text-md text-center">Profile</span>
               </a>
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item">
-                <span class="text-md">Logout</span>
+                <span class="text-md text-center">Logout</span>
               </a>
             </div>
           </li>
@@ -81,7 +72,7 @@
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index.html" class="brand-link">
+        <a href="home.blade.php" class="brand-link">
           <!-- <img
             src="dist/img/AdminLTELogo.png"
             alt="AdminLTE Logo"
@@ -156,69 +147,101 @@
         <!-- Main content -->
         <section class="content">
           <div class="card card-primary">
-            <div class="card-header bg-info">
-              <h3 class="card-title">
-                <i class="fa fa-cog"></i> General Settings
-              </h3>
+            <div class="card-header">
+              <h3 class="card-title">Add New Contact</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
             <form role="form">
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Application Name</label>
-
+                  <label for="name">Name</label>
                   <input
                     type="text"
                     class="form-control"
                     id="name"
                     name="name"
-                    placeholder="Application Name"
+                    placeholder="Name"
                   />
                 </div>
                 <div class="form-group">
-                  <label for="description">App Description</label>
+                  <label for="company">Company</label>
                   <input
                     type="text"
+                    name="company"
                     class="form-control"
-                    id="description"
-                    name="description"
-                    placeholder="App description"
+                    id="company"
+                    placeholder="Company"
                   />
                 </div>
                 <div class="form-group">
-                  <label for="keyword">App Keyword</label>
+                  <label for="phone">Phone</label>
                   <input
-                    type="text"
+                    type="tel"
+                    name="phone"
                     class="form-control"
-                    id="keyword"
-                    name="keyword"
-                    placeholder="App keyword"
+                    id="phone"
+                    placeholder="Phone"
                   />
                 </div>
                 <div class="form-group">
-                  <label for="language">App Language</label>
-                  <select name="language" id="language" class="form-control">
-                    <option value="en">English</option>
-                    <option value="bn">Bangla</option>
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="facebook">Facebook</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="facebook"
+                        placeholder="https://facebook.com"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="twitter">Twitter</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="twitter"
+                        placeholder="https://twitter.com"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <label for="linkedIn">LinkedIn</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="linkedIn"
+                        placeholder="https://linkedin.com"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="group">Group</label>
+                  <select name="group" id="group" class="form-control">
+                    <option value="family">Family</option>
+                    <option value="friends">Friends</option>
+                    <option value="clients">Clients</option>
                   </select>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input
-                    class="custom-control-input"
-                    type="checkbox"
-                    id="registerStatus"
-                    checked=""
-                  />
-                  <label for="registerStatus" class="custom-control-label"
-                    >Enable user registration</label
-                  >
                 </div>
               </div>
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>

@@ -21,7 +21,7 @@
       href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
     />
     <!-- Theme style -->
-    <link rel="stylesheet" href="css/admin-lte/adminlte.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/admin-lte/adminlte.min.css') }}" />
     <!-- Google Font: Source Sans Pro -->
     <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
@@ -40,7 +40,7 @@
             ></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="home.blade.php" class="nav-link">Home</a>
           </li>
         </ul>
 
@@ -81,7 +81,7 @@
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index.html" class="brand-link">
+        <a href="home.blade.php" class="brand-link">
           <!-- <img
             src="dist/img/AdminLTELogo.png"
             alt="AdminLTE Logo"
@@ -100,7 +100,7 @@
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
               <img
-                src="img/user-profile/user2-160x160.jpg"
+                src="{{ asset('assets/img/user-profile/user2-160x160.jpg') }}"
                 class="img-circle elevation-2"
                 alt="User Image"
               />
@@ -886,10 +886,10 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="js/jquery/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="js/admin-lte/adminlte.min.js"></script>
+    <script src="{{ asset('assets/js/admin-lte/adminlte.min.js') }}"></script>
   </body>
 </html>
