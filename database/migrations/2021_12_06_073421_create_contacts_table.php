@@ -24,6 +24,7 @@ class CreateContactsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('group')->nullable();
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

@@ -6,9 +6,9 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', [ContactController::class, 'showContact'])->middleware('auth')->name('home');
 
-Route::get('/add-contact', [ContactController::class, 'addContact'])->name('addContact');
+Route::get('/add-contact', [ContactController::class, 'addContact'])->middleware('auth')->name('addContact');
 //insert contact
-Route::post('/add-contact', [ContactController::class, 'insertContact'])->name('insertContact');
+Route::post('/add-contact', [ContactController::class, 'insertContact'])->middleware('auth')->name('insertContact');
 
 Route::get('/manage-user', function () {
     return view('public.manageUser');
