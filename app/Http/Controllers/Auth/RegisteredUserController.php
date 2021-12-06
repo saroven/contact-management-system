@@ -18,9 +18,10 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
     public function create()
     {
-        return view('auth.register');
+        return view('authentication.register');
     }
 
     /**
@@ -36,7 +37,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', 'min:6', 'max:255'],
         ]);
 
         $user = User::create([
