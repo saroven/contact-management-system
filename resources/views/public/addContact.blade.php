@@ -6,36 +6,51 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="post" action="{{ route('insertContact') }}">
+                @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Name</label>
+                  <label for="name">Name <span class="text-danger">*</span></label>
                   <input
                     type="text"
                     class="form-control"
                     id="name"
                     name="name"
                     placeholder="Name"
+                    value="{{ old('name') }}"
+                    required
                   />
+                  @error('name')
+                    <div>
+                      <span class="invalid-feedback" role="alert">
+                        {{ $message }}
+                      </span>
+                    </div>
+                  @enderror
                 </div>
+
                 <div class="form-group">
-                  <label for="company">Company</label>
-                  <input
-                    type="text"
-                    name="company"
-                    class="form-control"
-                    id="company"
-                    placeholder="Company"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="phone">Phone</label>
+                  <label for="phone">Phone <span class="text-danger">*</span></label>
                   <input
                     type="tel"
                     name="phone"
                     class="form-control"
                     id="phone"
                     placeholder="Phone"
+                    value="{{ old('phone') }}"
+                    required
+                  />
+                </div>
+                  <div class="form-group">
+                  <label for="about">About <span class="text-danger">*</span></label>
+                  <input
+                    type="text"
+                    name="about"
+                    class="form-control"
+                    id="about"
+                    placeholder="About"
+                    value="{{ old('about') }}"
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -45,8 +60,21 @@
                     class="form-control"
                     id="email"
                     name="email"
-                    placeholder="Enter email"
+                    placeholder="Email"
+                    value="{{ old('email') }}"
                   />
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    name="address"
+                    placeholder="Address"
+                    value="{{ old('address') }}"
+                  />
+
                 </div>
                 <div class="row">
                   <div class="col-4">
@@ -57,6 +85,7 @@
                         class="form-control"
                         name="facebook"
                         placeholder="https://facebook.com"
+                        value="{{ old('facebook') }}"
                       />
                     </div>
                   </div>
@@ -68,6 +97,7 @@
                         class="form-control"
                         name="twitter"
                         placeholder="https://twitter.com"
+                        value="{{ old('twitter') }}"
                       />
                     </div>
                   </div>
@@ -79,6 +109,7 @@
                         class="form-control"
                         name="linkedIn"
                         placeholder="https://linkedin.com"
+                        value="{{ old('linkedIn') }}"
                       />
                     </div>
                   </div>
@@ -86,9 +117,10 @@
                 <div class="form-group">
                   <label for="group">Group</label>
                   <select name="group" id="group" class="form-control">
-                    <option value="family">Family</option>
-                    <option value="friends">Friends</option>
-                    <option value="clients">Clients</option>
+                    <option value="Uncategorized" @if(old('group') == "Uncategorized") selected @endif >Select Group</option>
+                    <option value="Family" @if(old('group') == "Family") selected @endif >Family</option>
+                    <option value="Friends" @if(old('group') == "Friends") selected @endif >Friends</option>
+                    <option value="Clients" @if(old('group') == "Clients") selected @endif >Clients</option>
                   </select>
                 </div>
               </div>

@@ -1,14 +1,14 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ContactController;
 
 
-Route::get('/', function () {
-    return view('public.home');
-})->name('home');
+Route::get('/', [ContactController::class, 'showContact'])->name('home');
 
-Route::get('/add-contact', function () {
-    return view('public.addContact');
-})->name('addContact');
+Route::get('/add-contact', [ContactController::class, 'addContact'])->name('addContact');
+//insert contact
+Route::post('/add-contact', [ContactController::class, 'insertContact'])->name('insertContact');
 
 Route::get('/manage-user', function () {
     return view('public.manageUser');
@@ -29,3 +29,9 @@ Route::get('/register', function () {
 Route::get('/forgot-password', function () {
     return view('public.forgotPassword');
 })->name('forgotPassword');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
