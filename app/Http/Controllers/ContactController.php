@@ -20,23 +20,47 @@ class ContactController extends Controller
 
     public function insertContact(Request $request)
     {
-//        $request->validate([
-//            'name' => 'required|string',
-//            'phone' => 'required|min:10|max:11',
-//            'about' => 'required|string|min:3|max:40',
-//            'email' => 'sometimes|required|email',
-//            'address' => 'sometimes|required',
-//            'facebook' => 'sometimes|required',
-//            'twitter' => 'sometimes|required',
-//            'linkedIn' => 'sometimes|required',
-//            'group' => 'sometimes|required',
-//            'picture' => 'sometimes|required'
-//        ]);
-//        $fileName = '';
-//        if ($request->picture != null){
-//            $fileName = time().'img.'.$request->picture->getClientOriginalExtension();
-//            $request->picture->move(public_path('assets/img/profile'), $fileName);
-//        }
-        return $request->all();
+        $request->validate([
+            'name' => 'required|string',
+            'phone' => 'required|min:10|max:11',
+            'about' => 'required|string|min:3|max:40',
+            'email' => 'nullable|email|min:4|max:255',
+            'address' => 'nullable|string|min:1|max:255',
+            'facebook' => 'nullable|string|min:0|max:255',
+            'twitter' => 'nullable|string|min:0|max:255',
+            'linkedIn' => 'nullable|string|min:0|max:255',
+            'group' => 'nullable|string|min:0|max:255',
+            'picture' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ]);
+        try {
+            $fileName = '';
+            if ($request->picture != null){
+                $fileName = time().'img.'.$request->picture->getClientOriginalExtension();
+                $request->picture->move(public_path('assets/img/profile'), $fileName);
+            }
+
+            $contact = new Contact;
+            $contact->name = $request->name;
+            $contact->phone = $request->phone;
+            $contact->about = $request->about;
+            $contact->email = $request->email;
+            $contact->address = $request->address;
+            $contact->facebook = $request->facebook;
+            $contact->twitter = $request->twitter;
+            $contact->linkedIn = $request->linkedIn;
+            $contact->group = $request->group;
+            $contact->picture = $request->picture;
+
+            if ($contact->save()){
+                //success
+                return redirect()->route('home')->with('success', 'Added Successful');
+            }else{
+                //error
+                return redirect()->back()->with('success', 'Something went wrong');
+            }
+        }catch (\Exception $e){
+            \Log::error($e);
+             return redirect()->back()->with('success', 'Something went wrong');
+        }
     }
 }

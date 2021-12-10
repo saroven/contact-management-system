@@ -5,6 +5,11 @@
               <h3 class="card-title">Add New Contact</h3>
             </div>
             <!-- /.card-header -->
+              @if(Session::has('error'))
+                  <x-Message type="error" :message="Session::get('error')"></x-Message>
+              @elseif(Session::has('success'))
+                  <x-Message type="success" :message="Session::get('success')"></x-Message>
+              @endif
             <!-- form start -->
             <form role="form" method="post" action="{{ route('insertContact') }}" enctype="multipart/form-data">
                 @csrf
