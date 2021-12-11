@@ -65,7 +65,7 @@
                         <div class="card-body pb-0">
                           <div class="row d-flex align-items-stretch">
                             <!-- contact item -->
-                          @foreach($allContacts as $contact)
+                          @forelse($allContacts as $contact)
                             <div
                               class="
                                 col-12 col-sm-12 col-md-4
@@ -152,7 +152,9 @@
                                 </div>
                               </div>
                             </div>
-                          @endforeach
+                          @empty
+                              {{ 'no contacts' }}
+                          @endforelse
                             <!-- /contact item -->
                           </div>
                         </div>
@@ -200,7 +202,7 @@
                         <div class="card-body pb-0">
                           <div class="row d-flex align-items-stretch">
                             <!-- contact item -->
-                          @foreach($familyContacts as $family)
+                          @forelse($familyContacts as $family)
                             <div
                               class="
                                 col-12 col-sm-12 col-md-4
@@ -287,7 +289,9 @@
                                 </div>
                               </div>
                             </div>
-                          @endforeach
+                          @empty
+                              {{ 'no contacts' }}
+                          @endforelse
                           <!-- /contact item -->
                           </div>
                         </div>
@@ -335,7 +339,7 @@
                         <div class="card-body pb-0">
                           <div class="row d-flex align-items-stretch">
                             <!-- contact item -->
-                            @foreach($friendContacts as $friend)
+                            @forelse($friendContacts as $friend)
                             <div
                               class="
                                 col-12 col-sm-12 col-md-4
@@ -422,7 +426,9 @@
                                 </div>
                               </div>
                             </div>
-                          @endforeach
+                          @empty
+                                {{ 'no contacts' }}
+                          @endforelse
                             <!-- /contact item -->
                           </div>
                         </div>
@@ -471,7 +477,7 @@
                         <div class="card-body pb-0">
                           <div class="row d-flex align-items-stretch">
                             <!-- contact item -->
-                            @foreach($clientContacts as $client)
+                            @forelse($clientContacts as $client)
                             <div
                               class="
                                 col-12 col-sm-12 col-md-4
@@ -558,7 +564,9 @@
                                 </div>
                               </div>
                             </div>
-                          @endforeach
+                          @empty
+                                  {{ 'no contacts' }}
+                          @endforelse
                             <!-- /contact item -->
                           </div>
                         </div>
