@@ -10,7 +10,9 @@ class ContactController extends Controller
     public function showContact()
     {
         $allContacts = Contact::all();
-        return view('public.home', ['allContacts' => $allContacts]);
+
+        $familyContacts = Contact::where('group', 'Family')->get();
+        return view('public.home', ['allContacts' => $allContacts, 'familyContacts' => $familyContacts]);
     }
 
     public function addContact()
