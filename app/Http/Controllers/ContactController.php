@@ -13,7 +13,8 @@ class ContactController extends Controller
 
         $familyContacts = Contact::where('group', 'Family')->get();
         $friendContacts = Contact::where('group', 'Friends')->get();
-        return view('public.home', ['allContacts' => $allContacts, 'familyContacts' => $familyContacts, 'friendContacts' => $friendContacts]);
+        $clientContacts = Contact::where('group', 'Clients')->get();
+        return view('public.home', ['allContacts' => $allContacts, 'familyContacts' => $familyContacts, 'friendContacts' => $friendContacts, 'clientContacts' => $clientContacts]);
     }
 
     public function addContact()
