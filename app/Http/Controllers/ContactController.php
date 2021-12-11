@@ -33,10 +33,12 @@ class ContactController extends Controller
             'picture' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
         try {
-            $fileName = '';
+            $filePath = '';
             if ($request->picture != null){
                 $fileName = time().'img.'.$request->picture->getClientOriginalExtension();
                 $request->picture->move(public_path('assets/img/profile'), $fileName);
+                $filePath = 'assets/img/profile/'.$fileName;
+
             }
 
             $contact = new Contact;
@@ -49,7 +51,7 @@ class ContactController extends Controller
             $contact->twitter = $request->twitter;
             $contact->linkedIn = $request->linkedIn;
             $contact->group = $request->group;
-            $contact->picture = $request->picture;
+            $contact->picture = $filePath;
 
             if ($contact->save()){
                 //success

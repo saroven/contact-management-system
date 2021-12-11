@@ -98,13 +98,13 @@
                                           <span class="fa-li"
                                             ><i class="fas fa-lg fa-phone"></i
                                           ></span>
-                                          Phone #: + 800 - 12 12 23 52
+                                          Phone #: + 800 - {{ $contact->phone }}
                                         </li>
                                       </ul>
                                     </div>
                                     <div class="col-5 text-center">
                                       <img
-                                        src="img/profile/user1-128x128.jpg"
+                                        src="{{ $contact->picture ?? asset('assets/img/profile/default.jpg')}}"
                                         alt=""
                                         class="img-circle img-fluid"
                                       />
