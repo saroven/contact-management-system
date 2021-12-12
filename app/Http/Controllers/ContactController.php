@@ -9,11 +9,11 @@ class ContactController extends Controller
 {
     public function showContact()
     {
-        $allContacts = Contact::all();
+        $allContacts = Contact::paginate(1);
 
-        $familyContacts = Contact::where('group', 'Family')->get();
-        $friendContacts = Contact::where('group', 'Friends')->get();
-        $clientContacts = Contact::where('group', 'Clients')->get();
+        $familyContacts = Contact::where('group', 'Family')->paginate(12);
+        $friendContacts = Contact::where('group', 'Friends')->paginate(12);
+        $clientContacts = Contact::where('group', 'Clients')->paginate(12);
         return view('public.home', ['allContacts' => $allContacts, 'familyContacts' => $familyContacts, 'friendContacts' => $friendContacts, 'clientContacts' => $clientContacts]);
     }
 

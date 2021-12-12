@@ -161,32 +161,9 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                           <nav aria-label="Contacts Page Navigation">
-                            <ul class="pagination justify-content-center m-0">
-                              <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">5</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">6</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">7</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">8</a>
-                              </li>
-                            </ul>
+                              <div class="d-flex justify-content-center">
+                                {!! $allContacts->appends(['sort' => 'allContact'])->links() !!}
+                            </div>
                           </nav>
                         </div>
                         <!-- /.card-footer -->
@@ -298,32 +275,9 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                           <nav aria-label="Contacts Page Navigation">
-                            <ul class="pagination justify-content-center m-0">
-                              <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">5</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">6</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">7</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">8</a>
-                              </li>
-                            </ul>
+                              <div class="d-flex justify-content-center">
+                                {!! $familyContacts->appends(['sort' => 'family'])->links() !!}
+                              </div>
                           </nav>
                         </div>
                         <!-- /.card-footer -->
@@ -435,32 +389,9 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                           <nav aria-label="Contacts Page Navigation">
-                            <ul class="pagination justify-content-center m-0">
-                              <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">5</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">6</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">7</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">8</a>
-                              </li>
-                            </ul>
+                             <div class="d-flex justify-content-center">
+                                {!! $friendContacts->appends(['sort' => 'friend'])->links() !!}
+                            </div>
                           </nav>
                         </div>
                         <!-- /.card-footer -->
@@ -573,32 +504,9 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                           <nav aria-label="Contacts Page Navigation">
-                            <ul class="pagination justify-content-center m-0">
-                              <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">5</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">6</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">7</a>
-                              </li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">8</a>
-                              </li>
-                            </ul>
+                              <div class="d-flex justify-content-center">
+                                {!! $clientContacts->appends(['sort' => 'client'])->links() !!}
+                            </div>
                           </nav>
                         </div>
                         <!-- /.card-footer -->
