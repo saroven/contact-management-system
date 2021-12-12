@@ -60,6 +60,7 @@ class ContactController extends Controller
             }
 
             $contact = new Contact;
+            $contact->owner_id = \Auth::user()->id;
             $contact->name = $request->name;
             $contact->phone = $request->phone;
             $contact->about = $request->about;
@@ -76,11 +77,11 @@ class ContactController extends Controller
                 return redirect()->route('home')->with('success', 'Added Successful');
             }else{
                 //error
-                return redirect()->back()->with('success', 'Something went wrong');
+                return redirect()->back()->with('error', 'Something went wrong');
             }
         }catch (\Exception $e){
             \Log::error($e);
-             return redirect()->back()->with('success', 'Something went wrong');
+             return redirect()->back()->with('error', 'Something went wrong');
         }
     }
 }

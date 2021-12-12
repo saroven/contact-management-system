@@ -16,11 +16,11 @@
           <!-- Messages Dropdown Menu -->
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="fa fa-user"></i> User
+              <i class="fa fa-user"></i> {{ Auth::user()->name }}
               <i class="fas fa-sort-down"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-              <a href="#" class="dropdown-item">
+              <a href="{{ route('profile') }}" class="dropdown-item">
                 <span class="text-md">Profile</span>
               </a>
               <a href="#" class="dropdown-item">
