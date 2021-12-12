@@ -10,11 +10,25 @@ class ContactController extends Controller
     public function showContact()
     {
         $allContacts = Contact::paginate(1);
+        $count = [
+            'all' => Contact::all()->count(),
+            'family' => Contact::where('group', 'Family')->count(),
+            'friend' => Contact::where('group', 'Friends')->count(),
+            'client' => Contact::where('group', 'Clients')->count()
+        ];
 
         $familyContacts = Contact::where('group', 'Family')->paginate(12);
         $friendContacts = Contact::where('group', 'Friends')->paginate(12);
         $clientContacts = Contact::where('group', 'Clients')->paginate(12);
-        return view('public.home', ['allContacts' => $allContacts, 'familyContacts' => $familyContacts, 'friendContacts' => $friendContacts, 'clientContacts' => $clientContacts]);
+
+        return view('public.home',
+            [
+                'allContacts' => $allContacts,
+                'familyContacts' => $familyContacts,
+                'friendContacts' => $friendContacts,
+                'clientContacts' => $clientContacts,
+                'count' => $count
+            ]);
     }
 
     public function addContact()

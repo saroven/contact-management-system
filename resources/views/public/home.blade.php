@@ -19,7 +19,7 @@
                       role="tab"
                       aria-controls="all-contact"
                       aria-selected="true"
-                      >All Contacts <span class="badge bg-info">2</span></a
+                      >All Contacts <span class="badge bg-info">{{ $count['all'] }}</span></a
                     >
                     <a
                       class="nav-link"
@@ -29,7 +29,7 @@
                       role="tab"
                       aria-controls="family"
                       aria-selected="false"
-                      >Family <span class="badge bg-info">1</span></a
+                      >Family <span class="badge bg-info">{{ $count['family'] }}</span></a
                     >
                     <a
                       class="nav-link"
@@ -39,7 +39,7 @@
                       role="tab"
                       aria-controls="friends"
                       aria-selected="false"
-                      >Friends <span class="badge bg-info">1</span></a
+                      >Friends <span class="badge bg-info">{{ $count['friend'] }}</span></a
                     >
                     <a
                       class="nav-link"
@@ -49,7 +49,7 @@
                       role="tab"
                       aria-controls="clients"
                       aria-selected="false"
-                      >Clients <span class="badge bg-info">1</span></a
+                      >Clients <span class="badge bg-info">{{ $count['client'] }}</span></a
                     >
                   </div>
                 </div>
@@ -98,7 +98,7 @@
                                           <span class="fa-li"
                                             ><i class="fas fa-lg fa-phone"></i
                                           ></span>
-                                          Phone #: + 800 - {{ $contact->phone }}
+                                          Phone #: + 80 - {{ $contact->phone }}
                                         </li>
                                       </ul>
                                     </div>
@@ -212,7 +212,7 @@
                                           <span class="fa-li"
                                             ><i class="fas fa-lg fa-phone"></i
                                           ></span>
-                                          Phone #: + 800 - {{ $family->phone }}
+                                          Phone #: + 80 - {{ $family->phone }}
                                         </li>
                                       </ul>
                                     </div>
@@ -326,7 +326,7 @@
                                           <span class="fa-li"
                                             ><i class="fas fa-lg fa-phone"></i
                                           ></span>
-                                          Phone #: + 800 - {{ $friend->phone }}
+                                          Phone #: + 80 - {{ $friend->phone }}
                                         </li>
                                       </ul>
                                     </div>
@@ -441,7 +441,7 @@
                                           <span class="fa-li"
                                             ><i class="fas fa-lg fa-phone"></i
                                           ></span>
-                                          Phone #: + 800 - {{ $client->phone }}
+                                          Phone #: + 80 - {{ $client->phone }}
                                         </li>
                                       </ul>
                                     </div>
