@@ -23,7 +23,7 @@
               <a href="{{ route('profile') }}" class="dropdown-item">
                 <span class="text-md">Profile</span>
               </a>
-              <a href="#" class="dropdown-item">
+              <a href="{{ route('changePassword') }}" class="dropdown-item">
                 <span class="text-md">Change Password</span>
               </a>
               <a href="#" class="dropdown-item">

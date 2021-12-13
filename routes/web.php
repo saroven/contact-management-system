@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 
@@ -18,6 +19,8 @@ Route::get('/site-configuration', function () {
     return view('public.siteConfiguration');
 })->name('siteConfiguration');
 
+Route::get('change-password', [UserController::class, 'changePassword'])->middleware('auth')->name('changePassword');
+Route::post('change-password', [UserController::class, 'updatePassword'])->middleware('auth')->name('updatePassword');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
