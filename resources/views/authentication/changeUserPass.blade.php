@@ -78,6 +78,6 @@
         $(document).ready(function () {
           bsCustomFileInput.init();
         });
-        navActivator('addContact')
+        navActivator('changePassword')
     </script>
 @endsection

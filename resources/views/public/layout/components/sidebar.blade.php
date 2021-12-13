@@ -58,7 +58,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('changePassword') }}" id="changePassword" class="nav-link">
                   <i class="fas fa-lock"></i>
                   <p>Change Password</p>
                 </a>
