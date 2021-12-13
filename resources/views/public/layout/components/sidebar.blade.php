@@ -52,7 +52,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('profile') }}" id="profile" class="nav-link">
                   <i class="fas fa-user-edit"></i>
                   <p>Edit Profile</p>
                 </a>

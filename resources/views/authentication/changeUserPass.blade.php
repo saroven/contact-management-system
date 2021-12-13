@@ -73,11 +73,7 @@
 
 @endsection
 @section('extra-script')
-    <script src="{{ asset('assets/js/bs-custom-file/bs-custom-file-input.min.js') }}"></script>
     <script>
-        $(document).ready(function () {
-          bsCustomFileInput.init();
-        });
         navActivator('changePassword')
     </script>
 @endsection
