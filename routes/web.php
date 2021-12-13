@@ -29,5 +29,9 @@ Route::get('/dashboard', function () {
 Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'showProfilePage'])->middleware(['auth'])->name('profile');
 Route::post('/profile/update', [\App\Http\Controllers\ProfileController::class, 'updateProfile'])->middleware(['auth'])->name('profile.update');
 
+Route::get('logout', function(){
+    Auth::logout();
+    return redirect()->back();
+})->name('customLogout');
 require __DIR__.'/auth.php';
 

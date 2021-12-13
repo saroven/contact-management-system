@@ -36,7 +36,7 @@
                 <span class="text-md">Site Configuration</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
+              <a href="{{ route('customLogout') }}" class="dropdown-item">
                 <span class="text-md">Logout</span>
               </a>
             </div>
