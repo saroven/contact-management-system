@@ -8,16 +8,16 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="post" action="{{ route('siteConfiguration') }}">
+                @csrf
               <div class="card-body">
                 <div class="form-group">
                   <label for="name">Application Name</label>
-
                   <input
                     type="text"
                     class="form-control"
                     id="name"
-                    name="name"
+                    name="appName"
                     placeholder="Application Name"
                   />
                 </div>
@@ -26,7 +26,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="description"
+                    id="appDescription"
                     name="description"
                     placeholder="App description"
                   />
@@ -37,13 +37,13 @@
                     type="text"
                     class="form-control"
                     id="keyword"
-                    name="keyword"
+                    name="appKeyword"
                     placeholder="App keyword"
                   />
                 </div>
                 <div class="form-group">
                   <label for="language">App Language</label>
-                  <select name="language" id="language" class="form-control">
+                  <select name="appLanguage" id="language" class="form-control">
                     <option value="en">English</option>
                     <option value="bn">Bangla</option>
                   </select>
@@ -54,6 +54,7 @@
                     type="checkbox"
                     id="registerStatus"
                     checked=""
+                    name="userRegistration"
                   />
                   <label for="registerStatus" class="custom-control-label"
                     >Enable user registration</label
