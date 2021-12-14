@@ -84,4 +84,10 @@ class ContactController extends Controller
              return redirect()->back()->with('error', 'Something went wrong');
         }
     }
+
+    public function importExport()
+    {
+        $contacts = Contact::all();
+        return view('public.importExport', ['contacts' => $contacts]);
+    }
 }

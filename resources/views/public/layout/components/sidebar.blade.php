@@ -46,7 +46,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('importExport') }}" id="importExport" class="nav-link">
                   <i class="fas fa-address-book"> </i>
                   <p>Import / Export</p>
                 </a>

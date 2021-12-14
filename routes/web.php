@@ -12,9 +12,12 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
     //insert contact
     Route::post('/add-contact', [ContactController::class, 'insertContact'])->name('insertContact');
 
+    Route::get('/contact/import-export', [ContactController::class, 'importExport'])->name('importExport');
+
     Route::get('/manage-user', function () {
         return view('public.manageUser');
     })->name('manageUser');
+
 
     Route::get('/site-configuration', [SettingsController::class, 'show'])->name('siteConfiguration');
     Route::post('/site-configuration', [SettingsController::class, 'update'])->name('siteConfiguration');

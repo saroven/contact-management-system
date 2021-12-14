@@ -26,7 +26,7 @@
               <a href="{{ route('changePassword') }}" class="dropdown-item">
                 <span class="text-md">Change Password</span>
               </a>
-              <a href="#" class="dropdown-item">
+              <a href="{{ route('importExport') }}" class="dropdown-item">
                 <span class="text-md">Import / Export</span>
               </a>
               <a href="{{ route('manageUser') }}" class="dropdown-item">
