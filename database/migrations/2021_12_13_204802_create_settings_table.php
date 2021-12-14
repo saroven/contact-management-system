@@ -19,7 +19,7 @@ class CreateSettingsTable extends Migration
             $table->string('appDescription');
             $table->string('appKeyword');
             $table->string('appLanguage');
-            $table->boolean('userRegistration')->default(true);
+            $table->string('userRegistration')->default('on');
             $table->string('appLogo')->nullable();
             $table->timestamps();
         });
