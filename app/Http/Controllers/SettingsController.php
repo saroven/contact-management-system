@@ -9,7 +9,8 @@ class SettingsController extends Controller
 {
     public function show()
     {
-        return view('public.siteConfiguration');
+        $settingData = Setting::first();
+        return view('public.siteConfiguration', ['settings' => $settingData]);
     }
     public function update(Request $request)
     {
@@ -38,7 +39,7 @@ class SettingsController extends Controller
                     'appDescription' => $request->appDescription ?? $settingData->appDescription,
                     'appKeyword' => $request->appKeyword ?? $settingData->appKeyword,
                     'appLanguage' => $request->appLanguage ?? $settingData->appLanguage,
-                    'userRegistration' => $request->userRegistration ?? $settingData->userRegistration,
+                    'userRegistration' => $request->userRegistration ?? 'off',
                 ]);
                 return redirect()->back()->with('success', 'Updated Successful');
             }
