@@ -16,6 +16,8 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
 
     Route::post('/contact/export', [ContactController::class, 'export'])->name('export');
 
+    Route::post('/contact/import', [ContactController::class, 'import'])->name('import');
+
     Route::get('/manage-user', function () {
         return view('public.manageUser');
     })->name('manageUser');

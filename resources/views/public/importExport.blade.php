@@ -11,14 +11,25 @@
         </form>
     </div>
   </div>
+        @if(Session::has('error'))
+          <x-Message type="error" :message="Session::get('error')"></x-Message>
+      @elseif(Session::has('success'))
+          <x-Message type="success" :message="Session::get('success')"></x-Message>
+      @endif
   <!-- /.card-header -->
-    <form action="#">
+    <form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+        @csrf
       <div class="card-body">
           <div class="form-group">
               <label for="fileUpload">File Upload</label>
               <div class="custom-file">
-                <input type="file" name="fileUpload" class="custom-file-input" id="file">
+                <input type="file" name="file" class="custom-file-input @error('file') is-invalid @enderror" id="file">
                 <label class="custom-file-label" for="fileUpload">Choose file</label>
+              @error('file')
+                  <span class="invalid-feedback" role="alert">
+                    {{ $message }}
+                  </span>
+              @enderror
               </div>
           </div>
       </div>

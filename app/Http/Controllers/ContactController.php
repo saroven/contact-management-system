@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ContactsExport;
+use App\Imports\ContactsImport;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -90,6 +91,15 @@ class ContactController extends Controller
     public function importExport()
     {
         return view('public.importExport');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx'
+        ]);
+        Excel::import(new ContactsImport, $request->file('file')->store('temp'));
+        return back()->with('success', 'Imported Successful');
     }
 
     public function export()
