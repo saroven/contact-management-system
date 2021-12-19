@@ -12,6 +12,10 @@ class ContactsExport implements FromCollection
     */
     public function collection()
     {
-        return Contact::all();
+        $contacts = Contact::all();
+
+        $contacts->makeHidden(['owner_id','picture','created_at', 'updated_at']);
+
+        return $contacts;
     }
 }
