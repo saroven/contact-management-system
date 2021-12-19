@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ContactsExport;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ContactController extends Controller
 {
@@ -92,9 +94,6 @@ class ContactController extends Controller
 
     public function export()
     {
-        $contacts = Contact::where('owner_id', auth()->user()->id)
-            ->orderBy('name')
-            ->get();
-        return view('public.export', ['contacts' => $contacts]);
+        return Excel::download(new ContactsExport, 'Contacts.xlsx');
     }
 }
