@@ -104,8 +104,8 @@
                                     </div>
                                     <div class="col-5 text-center">
                                       <img
-                                        src="{{ $contact->picture ?? asset('assets/img/profile/default.jpg')}}"
-                                        alt=""
+                                        src="{{ $contact->picture ?? asset('assets/img/profile/default.jpg') }}"
+                                        alt="img"
                                         class="img-circle img-fluid"
                                       />
                                     </div>

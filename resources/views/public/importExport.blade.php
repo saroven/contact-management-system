@@ -5,7 +5,10 @@
     <h3 class="card-title">Import / Export Contacts</h3>
 
     <div class="card-tools">
-      <button type="button" class="btn btn-info">Export Contact in PDF format</button>
+        <form action="{{ route('export') }}" method="post" target="_blank">
+            @csrf
+            <button type="submit" class="btn btn-info">Export Contacts</button>
+        </form>
     </div>
   </div>
   <!-- /.card-header -->

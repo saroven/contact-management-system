@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function showContact()
     {
-        $allContacts = Contact::paginate(1);
+        $allContacts = Contact::paginate(12);
         $count = [
             'all' => Contact::all()->count(),
             'family' => Contact::where('group', 'Family')->count(),
@@ -87,7 +87,14 @@ class ContactController extends Controller
 
     public function importExport()
     {
-        $contacts = Contact::all();
-        return view('public.importExport', ['contacts' => $contacts]);
+        return view('public.importExport');
+    }
+
+    public function export()
+    {
+        $contacts = Contact::where('owner_id', auth()->user()->id)
+            ->orderBy('name')
+            ->get();
+        return view('public.export', ['contacts' => $contacts]);
     }
 }
