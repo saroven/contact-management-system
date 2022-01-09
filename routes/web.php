@@ -18,6 +18,10 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
 
     Route::post('/contact/import', [ContactController::class, 'import'])->name('import');
 
+    Route::post('/contact/edit', [ContactController::class, 'edit'])->name('edit');
+
+    Route::post('/contact/delete', [ContactController::class, 'edit'])->name('delete');
+
     Route::get('/manage-user', function () {
         return view('public.manageUser');
     })->name('manageUser');

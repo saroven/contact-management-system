@@ -106,4 +106,14 @@ class ContactController extends Controller
     {
         return Excel::download(new ContactsExport, 'Contacts.xlsx');
     }
+
+    public function edit()
+    {
+        return "Edit";
+    }
+
+    public function delete($id)
+    {
+        return "Delete";
+    }
 }
