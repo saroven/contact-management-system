@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="home.blade.php" class="brand-link">
+        <a href="{{ route('home') }}" class="brand-link">
           <!-- <img
             src="dist/img/AdminLTELogo.png"
             alt="AdminLTE Logo"
