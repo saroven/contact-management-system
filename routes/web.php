@@ -20,7 +20,9 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
 
     Route::get('/contact/edit/{id}', [ContactController::class, 'edit'])->name('edit');
 
-    Route::get('/contact/delete/{id}', [ContactController::class, 'edit'])->name('delete');
+    Route::post('/contact/edit/{id}', [ContactController::class, 'update'])->name('update');
+
+    Route::get('/contact/delete/{id}', [ContactController::class, 'delete'])->name('delete');
 
     Route::get('/manage-user', function () {
         return view('public.manageUser');

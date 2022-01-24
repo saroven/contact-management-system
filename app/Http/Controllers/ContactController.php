@@ -112,6 +112,64 @@ class ContactController extends Controller
         $data = Contact::where('id', $id)->first();
         return view('public.edit', ['data'=> $data]);
     }
+    public function update(Request $request)
+    {
+        $data = Contact::where('id', $request->id)->first();
+        if ($data){
+            $request->validate([
+            'name' => 'required|string',
+            'phone' => 'required|min:10|max:11',
+            'about' => 'required|string|min:3|max:40',
+            'email' => 'nullable|email|min:4|max:255',
+            'address' => 'nullable|string|min:1|max:255',
+            'facebook' => 'nullable|string|min:0|max:255',
+            'twitter' => 'nullable|string|min:0|max:255',
+            'linkedIn' => 'nullable|string|min:0|max:255',
+            'group' => 'nullable|string|min:0|max:255',
+            'picture' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+            ]);
+            try {
+                $filePath = '';
+                if ($request->picture != null){
+                    if ($data->picture != null){
+                        $img = explode("/",$data->picture);
+                         if (\File::exists(public_path('assets/img/profile').'/'.$img[3])){
+                            unlink(public_path('assets/img/profile').'/'.$img[3]);
+                        }
+                    }
+                    $fileName = time().'img.'.$request->picture->getClientOriginalExtension();
+                    $request->picture->move(public_path('assets/img/profile'), $fileName);
+                    $filePath = 'assets/img/profile/'.$fileName;
+                }else{
+                    $filePath = $data->picture;
+                }
+
+                $contact = Contact::where('id', $request->id)->
+                    where('owner_id', \Auth::user()->id)->
+                    update(['name' => $request->name,
+                            'phone' => $request->phone,
+                            'about' => $request->about,
+                            'email' => $request->email,
+                            'address' => $request->address,
+                            'facebook' => $request->facebook,
+                            'twitter' => $request->twitter,
+                            'linkedIn' => $request->linkedIn,
+                            'group' => $request->group,
+                            'picture' => $filePath]);
+
+                if ($contact){
+                    //success
+                    return redirect()->route('home')->with('success', 'Added Successful');
+                }else{
+                    //error
+                    return redirect()->back()->with('error', 'Something went wrong');
+                }
+            }catch (\Exception $e){
+                \Log::error($e);
+                 return redirect()->back()->with('error', 'Something went wrong');
+            }
+            }
+    }
 
     public function delete($id)
     {

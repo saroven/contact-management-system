@@ -11,7 +11,7 @@
                   <x-Message type="success" :message="Session::get('success')"></x-Message>
               @endif
             <!-- form start -->
-            <form role="form" method="post" action="{{ route('insertContact') }}" enctype="multipart/form-data">
+            <form role="form" method="post" action="{{ route('update', $data->id ) }}" enctype="multipart/form-data">
                 @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -74,7 +74,7 @@
                     id="email"
                     name="email"
                     placeholder="Email"
-                    value="{{ $data->name ?? old('email') }}"
+                    value="{{ $data->email ?? old('email') }}"
                   />
                     @error('email')
                       <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
                     id="address"
                     name="address"
                     placeholder="Address"
-                    value="{{ $data->name ?? old('address') }}"
+                    value="{{ $data->address ?? old('address') }}"
                   />
                     @error('address')
                       <span class="invalid-feedback" role="alert">
