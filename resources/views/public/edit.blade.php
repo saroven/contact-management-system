@@ -2,7 +2,7 @@
 @section('content')
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Add New Contact</h3>
+              <h3 class="card-title">Edit Contact</h3>
             </div>
             <!-- /.card-header -->
               @if(Session::has('error'))
@@ -22,7 +22,7 @@
                     id="name"
                     name="name"
                     placeholder="Name"
-                    value="{{ old('name') }}"
+                    value="{{ $data->name ?? old('name')}}"
                     required
                   />
                   @error('name')
@@ -40,7 +40,7 @@
                     class="form-control @error('phone') is-invalid @enderror"
                     id="phone"
                     placeholder="Phone"
-                    value="{{ old('phone') }}"
+                    value="{{ $data->phone ?? old('phone') }}"
                     required
                   />
                     @error('phone')
@@ -57,7 +57,7 @@
                     class="form-control @error('about') is-invalid @enderror"
                     id="about"
                     placeholder="About"
-                    value="{{ old('about') }}"
+                    value="{{ $data->about ?? old('about') }}"
                     required
                   />
                       @error('about')
@@ -74,7 +74,7 @@
                     id="email"
                     name="email"
                     placeholder="Email"
-                    value="{{ old('email') }}"
+                    value="{{ $data->name ?? old('email') }}"
                   />
                     @error('email')
                       <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
                     id="address"
                     name="address"
                     placeholder="Address"
-                    value="{{ old('address') }}"
+                    value="{{ $data->name ?? old('address') }}"
                   />
                     @error('address')
                       <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                         class="form-control @error('facebook') is-invalid @enderror"
                         name="facebook"
                         placeholder="https://facebook.com"
-                        value="{{ old('facebook') ?? 'https://facebook.com/' }}"
+                        value="{{ $data->facebook ?? old('facebook') ?? 'https://facebook.com/' }}"
                       />
                         @error('facebook')
                           <span class="invalid-feedback" role="alert">
@@ -124,7 +124,7 @@
                         class="form-control @error('twitter') is-invalid @enderror"
                         name="twitter"
                         placeholder="https://twitter.com"
-                        value="{{ old('twitter') ?? 'https://twitter.com/'}}"
+                        value="{{ $data->twitter ?? old('twitter') ?? 'https://twitter.com/'}}"
                       />
                         @error('twitter')
                           <span class="invalid-feedback" role="alert">
@@ -141,7 +141,7 @@
                         class="form-control @error('linkedIn') is-invalid @enderror"
                         name="linkedIn"
                         placeholder="https://linkedin.com"
-                        value="{{ old('linkedIn') ?? 'https://linkedin/in/'}}"
+                        value="{{ $data->linkedIn ?? old('linkedIn') ?? 'https://linkedin/in/'}}"
                       />
                         @error('linkedIn')
                           <span class="invalid-feedback" role="alert">
@@ -166,10 +166,10 @@
                 <div class="form-group">
                   <label for="group">Group</label>
                   <select name="group" id="group" class="form-control @error('group') is-invalid @enderror">
-                    <option value="Uncategorized" @if(old('group') == "Uncategorized") selected @endif >Select Group</option>
-                    <option value="Family" @if(old('group') == "Family") selected @endif >Family</option>
-                    <option value="Friends" @if(old('group') == "Friends") selected @endif >Friends</option>
-                    <option value="Clients" @if(old('group') == "Clients") selected @endif >Clients</option>
+                    <option value="Uncategorized" @if($data->group == "Uncategorized" || old('group') == "Uncategorized") selected @endif >Select Group</option>
+                    <option value="Family" @if($data->group == "Family" || old('group') == "Family") selected @endif >Family</option>
+                    <option value="Friends" @if($data->group == "Friends" || old('group') == "Friends") selected @endif >Friends</option>
+                    <option value="Clients" @if($data->group == "Clients" || old('group') == "Clients") selected @endif >Clients</option>
                   </select>
                     @error('group')
                       <span class="invalid-feedback" role="alert">
@@ -194,6 +194,6 @@
         $(document).ready(function () {
           bsCustomFileInput.init();
         });
-        navActivator('addContact')
+
     </script>
 @endsection

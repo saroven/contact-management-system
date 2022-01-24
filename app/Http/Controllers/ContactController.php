@@ -107,9 +107,10 @@ class ContactController extends Controller
         return Excel::download(new ContactsExport, 'Contacts.xlsx');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return "Edit";
+        $data = Contact::where('id', $id)->first();
+        return view('public.edit', ['data'=> $data]);
     }
 
     public function delete($id)

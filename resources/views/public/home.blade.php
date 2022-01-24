@@ -78,8 +78,8 @@
                                   class="card-header text-muted border-bottom-0"
                                 >
                                     {{ $contact->about }}
-                                    <a href="#"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
-                                    <a href="#"><i class="ml-1 fas fa-user-times text-danger"></i></a>
+                                    <a href="{{ route('edit', $contact->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
+                                    <a href="{{ route('delete', $contact->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
                                 </div>
                                 <div class="card-body pt-0">
                                   <div class="row">
