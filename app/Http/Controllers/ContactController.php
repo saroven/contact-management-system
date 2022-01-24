@@ -159,7 +159,7 @@ class ContactController extends Controller
 
                 if ($contact){
                     //success
-                    return redirect()->route('home')->with('success', 'Added Successful');
+                    return redirect()->route('home')->with('success', 'Updated Successful');
                 }else{
                     //error
                     return redirect()->back()->with('error', 'Something went wrong');
