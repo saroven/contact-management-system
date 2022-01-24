@@ -173,6 +173,19 @@ class ContactController extends Controller
 
     public function delete($id)
     {
-        return "Delete";
+        try{
+            $data = Contact::where('id', $id)->where('owner_id', \Auth::user()->id)->first();
+            if ($data->picture != null){
+                $img = explode("/",$data->picture);
+                 if (\File::exists(public_path('assets/img/profile').'/'.$img[3])){
+                    unlink(public_path('assets/img/profile').'/'.$img[3]);
+                }
+            }
+            Contact::where('id', $id)->where('owner_id', \Auth::user()->id)->delete();
+            return redirect()->back()->with('success', 'Deleted successfully');
+        }catch (\Exception $e){
+                \Log::error($e);
+                 return redirect()->back()->with('error', 'Something went wrong!');
+            }
     }
 }
