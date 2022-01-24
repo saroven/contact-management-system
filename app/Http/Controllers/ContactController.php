@@ -12,17 +12,17 @@ class ContactController extends Controller
 {
     public function showContact()
     {
-        $allContacts = Contact::paginate(12);
+        $allContacts = Contact::where('owner_id', \Auth::user()->id)->paginate(12);
         $count = [
-            'all' => Contact::all()->count(),
-            'family' => Contact::where('group', 'Family')->count(),
-            'friend' => Contact::where('group', 'Friends')->count(),
-            'client' => Contact::where('group', 'Clients')->count()
+            'all' => Contact::where('owner_id', \Auth::user()->id)->count(),
+            'family' => Contact::where('owner_id', \Auth::user()->id)->where('group', 'Family')->count(),
+            'friend' => Contact::where('owner_id', \Auth::user()->id)->where('group', 'Friends')->count(),
+            'client' => Contact::where('owner_id', \Auth::user()->id)->where('group', 'Clients')->count()
         ];
 
-        $familyContacts = Contact::where('group', 'Family')->paginate(12);
-        $friendContacts = Contact::where('group', 'Friends')->paginate(12);
-        $clientContacts = Contact::where('group', 'Clients')->paginate(12);
+        $familyContacts = Contact::where('owner_id', \Auth::user()->id)->where('group', 'Family')->paginate(12);
+        $friendContacts = Contact::where('owner_id', \Auth::user()->id)->where('group', 'Friends')->paginate(12);
+        $clientContacts = Contact::where('owner_id', \Auth::user()->id)->where('group', 'Clients')->paginate(12);
 
         return view('public.home',
             [
