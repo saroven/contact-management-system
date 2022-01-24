@@ -49,6 +49,20 @@
                   <p>Change Password</p>
                 </a>
               </li>
+                <?php if (auth()->user()->role == 'admin') { ?>
+                <li class="nav-item">
+                <a href="{{ route('manageUser') }}" id="manageUser" class="nav-link">
+                  <i class="fas fa-users-cog"></i>
+                  <p>Manage User</p>
+                </a>
+              </li>
+                <li class="nav-item">
+                <a href="{{ route('siteConfiguration') }}" id="siteConfiguration" class="nav-link">
+                  <i class="fas fa-tools"></i>
+                  <p>Site Configuration</p>
+                </a>
+              </li>
+                <?php } ?>
             </ul>
           </nav>
           <!-- /.sidebar-menu -->

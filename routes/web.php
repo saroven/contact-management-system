@@ -7,7 +7,7 @@ use App\Http\Controllers\ContactController;
 Route::middleware(['admin'])->group(function (){
     Route::get('/dashboard', function (){
         return view('admin.home');
-    });
+    })->name('dashboard');
 });
 Route::middleware(['auth'])->group(function (){ //route middleware group
     Route::get('/', [ContactController::class, 'showContact'])->name('home');
