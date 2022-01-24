@@ -1,13 +1,18 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 Route::middleware(['admin'])->group(function (){
-    Route::get('/dashboard', function (){
-        return view('admin.home');
-    })->name('dashboard');
+    Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('dashboard');
+
+    Route::get('/manage-user', [AdminController::class, 'showManageUserPage'])->name('manageUser');
+
+    Route::get('/site-configuration', [SettingsController::class, 'show'])->name('siteConfiguration');
+    Route::post('/site-configuration', [SettingsController::class, 'update'])->name('siteConfiguration');
+
 });
 Route::middleware(['auth'])->group(function (){ //route middleware group
     Route::get('/', [ContactController::class, 'showContact'])->name('home');
@@ -27,14 +32,6 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
     Route::post('/contact/edit/{id}', [ContactController::class, 'update'])->name('update');
 
     Route::get('/contact/delete/{id}', [ContactController::class, 'delete'])->name('delete');
-
-    Route::get('/manage-user', function () {
-        return view('public.manageUser');
-    })->name('manageUser');
-
-
-    Route::get('/site-configuration', [SettingsController::class, 'show'])->name('siteConfiguration');
-    Route::post('/site-configuration', [SettingsController::class, 'update'])->name('siteConfiguration');
 
     Route::get('change-password', [UserController::class, 'changePassword'])->name('changePassword');
     Route::post('change-password', [UserController::class, 'updatePassword'])->name('updatePassword');
