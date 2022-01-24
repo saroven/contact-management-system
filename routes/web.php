@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 Route::middleware(['admin'])->group(function (){
     Route::get('/dashboard', function (){
-        return 'Hello Admin';
+        return view('admin.home');
     });
 });
 Route::middleware(['auth'])->group(function (){ //route middleware group
@@ -48,4 +48,6 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
         return redirect()->back();
     })->name('customLogout');
 });
+
+require __DIR__.'/auth.php';
 

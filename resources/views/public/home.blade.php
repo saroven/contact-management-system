@@ -83,8 +83,10 @@
                                   class="card-header text-muted border-bottom-0"
                                 >
                                     {{ $contact->about }}
-                                    <a href="{{ route('edit', $contact->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
-                                    <a href="{{ route('delete', $contact->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
+                                    <?php if ($contact->owner_id == Auth::user()->id) { ?>
+                                        <a href="{{ route('edit', $contact->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
+                                        <a href="{{ route('delete', $contact->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
+                                    <?php } ?>
                                 </div>
                                 <div class="card-body pt-0">
                                   <div class="row">
@@ -198,10 +200,11 @@
                                 <div
                                   class="card-header text-muted border-bottom-0"
                                 >
-                                    <a href="{{ route('edit', $family->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
-                                  <a href="{{ route('delete', $family->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
-
                                     {{ $family->about }}
+                                    <?php if ($family->owner_id == Auth::user()->id) { ?>
+                                        <a href="{{ route('edit', $family->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
+                                        <a href="{{ route('delete', $family->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
+                                    <?php } ?>
                                 </div>
                                 <div class="card-body pt-0">
                                   <div class="row">
@@ -316,9 +319,10 @@
                                   class="card-header text-muted border-bottom-0"
                                 >
                                     {{ $friend->about }}
-                                    <a href="{{ route('edit', $friend->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
-                                  <a href="{{ route('delete', $friend->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
-
+                                    <?php if ($friend->owner_id == Auth::user()->id) { ?>
+                                        <a href="{{ route('edit', $friend->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
+                                        <a href="{{ route('delete', $friend->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
+                                    <?php } ?>
                                 </div>
                                 <div class="card-body pt-0">
                                   <div class="row">
@@ -434,9 +438,10 @@
                                   class="card-header text-muted border-bottom-0"
                                 >
                                     {{ $client->about }}
-                                    <a href="{{ route('edit', $client->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
-                                  <a href="{{ route('delete', $client->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
-
+                                    <?php if ($client->owner_id == Auth::user()->id) { ?>
+                                        <a href="{{ route('edit', $client->id) }}"><i class="ml-2 fas fa-user-edit text-primary"></i></a>
+                                        <a href="{{ route('delete', $client->id) }}"><i class="ml-1 fas fa-user-times text-danger"></i></a>
+                                    <?php } ?>
                                 </div>
                                 <div class="card-body pt-0">
                                   <div class="row">
