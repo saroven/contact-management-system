@@ -5,12 +5,16 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+
 Route::middleware(['auth','admin'])->group(function (){
     Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('dashboard');
 
     Route::get('/manage-user', [AdminController::class, 'showManageUserPage'])->name('manageUser');
 
+    Route::post('/add-user', [AdminController::class, 'addUser'])->name('addUser');
+
     Route::get('/site-configuration', [SettingsController::class, 'show'])->name('siteConfiguration');
+
     Route::post('/site-configuration', [SettingsController::class, 'update'])->name('siteConfiguration');
 
 });
