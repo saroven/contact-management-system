@@ -5,7 +5,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
-Route::middleware(['admin'])->group(function (){
+Route::middleware(['auth','admin'])->group(function (){
     Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('dashboard');
 
     Route::get('/manage-user', [AdminController::class, 'showManageUserPage'])->name('manageUser');
