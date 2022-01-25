@@ -106,3 +106,8 @@
             </form>
           </div>
 @endsection
+@section('extra-script')
+    <script>
+        navActivator('siteConfiguration')
+    </script>
+@endsection
