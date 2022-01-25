@@ -80,4 +80,16 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'Something went wrong!')->withInput();
         }
     }
+
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        try {
+            $user->delete();
+            return redirect()->back()->with('success', 'Deleted successful');
+        }catch (\Exception $e){
+            \Log::error($e);
+            return redirect()->back()->with('error', 'Something went wrong!');
+        }
+    }
 }
