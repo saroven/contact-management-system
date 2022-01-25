@@ -44,4 +44,40 @@ class AdminController extends Controller
         }
 
     }
+
+    public function editUser($id)
+    {
+        $userData = User::where('id', $id)->first();
+
+        return view('admin.editUser', ['userInfo' => $userData]);
+    }
+
+    public function updateUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|min:3|max:150',
+            'email' => 'required|email|min:3|max:150',
+            'about' => 'required|string|min:3|max:150',
+            'phone' => 'required|numeric|digits:11',
+            'role' => 'required|string|min:4|max:5',
+            'gender' => 'required|string|max:10',
+        ]);
+
+        try {
+        User::where('id' , $request->id)
+            ->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'about' => $request->about,
+                'phone' => $request->phone,
+                'role' => $request->role,
+                'gender' => $request->gender
+            ]);
+
+        return redirect()->back()->with('success', 'Update successful');
+        }catch (\Exception $exception){
+            \Log::error($exception);
+            return redirect()->back()->with('error', 'Something went wrong!')->withInput();
+        }
+    }
 }

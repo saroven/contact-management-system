@@ -13,6 +13,12 @@ Route::middleware(['auth','admin'])->group(function (){
 
     Route::post('/add-user', [AdminController::class, 'addUser'])->name('addUser');
 
+    Route::get('/user/{id}/edit', [AdminController::class, 'editUser'])->name('editUser');
+
+    Route::post('/user/{id}/edit', [AdminController::class, 'updateUser'])->name('updateUser');
+
+    Route::get('/user/{id}/delete', [AdminController::class, 'deleteUser'])->name('deleteUser');
+
     Route::get('/site-configuration', [SettingsController::class, 'show'])->name('siteConfiguration');
 
     Route::post('/site-configuration', [SettingsController::class, 'update'])->name('siteConfiguration');

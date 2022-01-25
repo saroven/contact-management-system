@@ -123,9 +123,9 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role }}</td>
                     <td>
-                      <a href="#" class="btn btn-primary mr-4"
+                      <a href="{{ route('editUser', $user->id) }}" class="btn btn-primary mr-4"
                         ><i class="fas fa-edit"></i></a
-                      ><a href="#" class="btn btn-danger"
+                      ><a href="{{ route('deleteUser', $user->id) }}" class="btn btn-danger"
                         ><i class="fas fa-trash"></i>
                       </a>
                     </td>
