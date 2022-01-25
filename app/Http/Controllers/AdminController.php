@@ -15,7 +15,7 @@ class AdminController extends Controller
 
     public function showManageUserPage()
     {
-        $users = User::all();
+        $users = User::where('id', '!=', auth()->user()->id)->get();
         return view('admin.manageUser', ['users' => $users]);
     }
 
