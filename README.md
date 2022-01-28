@@ -3,7 +3,7 @@
 ## About This project
 The programming language I've used in this project  is PHP and Laravel and MysQL.
 
-In the back end I've used  <p><a href="https://adminlte.io/docs/3.0/">Admin-lte 3.0</a></p>
+In back-end I've used  <p><a href="https://adminlte.io/docs/3.0/">Admin-lte 3.0</a></p>
 
 ## Features
 - Social Login (Facebook, Google)
