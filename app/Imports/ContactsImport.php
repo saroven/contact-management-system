@@ -19,15 +19,15 @@ class ContactsImport implements ToModel
 
         return new Contact([
             'owner_id' => auth()->user()->id,
-             'name' => $row[1],
-            'phone' => $row[2],
-            'about' => $row[3],
-            'email' => $row[4],
-            'address' => $row[5],
-            'facebook' => $row[6],
-            'twitter' => $row[7],
-            'linkedin' => $row[8],
-            'group' => $row[9],
+             'name' => $row[0],
+            'phone' => $row[1],
+            'about' => $row[2],
+            'email' => $row[3],
+            'address' => $row[4],
+            'facebook' => $row[5],
+            'twitter' => $row[6],
+            'linkedin' => $row[7],
+            'group' => $row[8],
         ]);
     }
 }
