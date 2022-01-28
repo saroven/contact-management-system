@@ -15,7 +15,27 @@ class SocialLogin extends Controller
     }
     public function facebookCallback()
     {
+        try {
+            $user = Socialite::driver('facebook')->user();
+            $userExist = User::where('oauth_id', $user->id)->where('oauth_type', 'google')->first();
+            if ($userExist){
+                \Auth::login($userExist);
+                 return redirect()->route('home');
+            }else{
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'oauth_id' => $user->id,
+                    'oauth_type' => 'facebook',
+                    'password' => \Hash::make($user->id)
+                ]);
 
+                \Auth::login($newUser);
+                return redirect()->route('home');
+            }
+        }catch (Exception $exception){
+            \Log::error($exception);
+        }
     }
 
 
@@ -44,7 +64,6 @@ class SocialLogin extends Controller
                 return redirect()->route('home');
             }
         }catch (Exception $exception){
-            dd($exception);
             \Log::error($exception);
         }
     }
