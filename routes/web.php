@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SocialLogin;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
@@ -55,6 +56,16 @@ Route::middleware(['auth'])->group(function (){ //route middleware group
         return redirect()->back();
     })->name('customLogout');
 });
+
+//route for facebook login
+Route::get('/login/facebook/redirect', [SocialLogin::class, 'facebookRedirect'])->name('facebookLogin');
+
+Route::get('/login/facebook/callback', [SocialLogin::class, 'facebookCallback']);
+
+//route for google login
+Route::get('/login/google/redirect', [SocialLogin::class, 'googleRedirect'])->name('googleLogin');
+
+Route::get('/login/google/callback', [SocialLogin::class, 'googleCallback']);
 
 require __DIR__.'/auth.php';
 
