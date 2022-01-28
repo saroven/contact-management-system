@@ -34,12 +34,14 @@
               <a href="{{ route('importExport') }}" class="dropdown-item">
                 <span class="text-md">Import / Export</span>
               </a>
-              <a href="{{ route('manageUser') }}" class="dropdown-item">
-                <span class="text-md">Manage Users</span>
-              </a>
-              <a href="{{ route('siteConfiguration') }}" class="dropdown-item">
-                <span class="text-md">Site Configuration</span>
-              </a>
+                <?php if (auth()->user()->role == 'admin') { ?>
+                  <a href="{{ route('manageUser') }}" class="dropdown-item">
+                    <span class="text-md">Manage Users</span>
+                  </a>
+                  <a href="{{ route('siteConfiguration') }}" class="dropdown-item">
+                    <span class="text-md">Site Configuration</span>
+                  </a>
+                <?php } ?>
               <div class="dropdown-divider"></div>
               <a href="{{ route('customLogout') }}" class="dropdown-item">
                 <span class="text-md">Logout</span>
